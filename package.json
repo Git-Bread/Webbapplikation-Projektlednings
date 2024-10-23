@@ -2,7 +2,7 @@
   "name": "webbapplikation",
   "version": "1.0.0",
   "description": "applikation till projektlednings-projekt",
-  "main": "index.html",
+  "source": "index.html",
   "scripts": {
     "build": "parcel build",
     "run": "parcel"
