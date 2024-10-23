@@ -15,6 +15,7 @@ header {
             color: $link-color;
             text-decoration: underline;
             border: solid 1px darken($color: $border-color, $amount: 80%);
+            background-color: darken($color: $base-color, $amount: 4%);
         }
         a {
             text-decoration: none;
@@ -29,6 +30,6 @@ header {
         margin-bottom: auto;
     }
     h1 {
-        margin-left: 0.5em;
+        margin-left: 1em;
     }
 }
