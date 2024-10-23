@@ -6,21 +6,35 @@
         <title>Group Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="js.js"></script>
-        <link rel="stylesheet" href="css.scss">
+        <link rel="stylesheet" href="scss/master.scss">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     </head>
     <body>
       <header id="nav">
         <h1>Group-Manager-2000</h1>
         <nav>
-            <h2>Home</h2>
-            <h2>Profile</h2>
+            <h2><a href="profile.html">Profile</a></h2>
         </nav>
       </header>
       <section id="groups">
+        <h2>Your Groups</h2>
+        <div id="groupList">
 
+        </div>
+        <form>
+          <label for="joinGroup">Group To Join: </label>
+          <input type="text" id="joinGroup" name="groupJoinInput">
+          <button>Join</button>
+        </form>
       </section>
       <section id="options">
-        
+        <h2>Group Functionalities</h2>
+        <div>
+          <h3>Messages</h3>
+          <h3>File Download</h3>
+          <h3>File Upload</h3>
+          <h3>Information</h3>
+        </div>
       </section>
       <section id="content">
         

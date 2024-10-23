@@ -1,0 +1,34 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: clamp(4em, 7vh, 7em);
+    nav {
+        display: flex;
+        margin: 0;
+        margin-right: 1em;
+        h2 {
+            padding: 0;
+            display: flex;
+        }
+        a:hover {
+            color: $link-color;
+            text-decoration: underline;
+            border: solid 1px darken($color: $border-color, $amount: 80%);
+        }
+        a {
+            text-decoration: none;
+            border-radius: 40px;
+            padding: 0.2em 0.8em 0.2em 0.8em;
+            border: solid 1px $border-color;
+            margin-right: 0.5em;
+        }
+    }
+    h1, nav h2 a {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    h1 {
+        margin-left: 0.5em;
+    }
+}
