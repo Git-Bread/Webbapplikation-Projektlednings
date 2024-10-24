@@ -22,7 +22,7 @@ content {
         grid-column: 3/8;
         display: flex;
         justify-content: space-between;
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 1400px) {
             flex-direction: column;
         }
         @media screen and (max-width: 800px) {
@@ -39,7 +39,7 @@ content {
             }
         }
         #options {
-            @media screen and (max-width: 1024px) {
+            @media screen and (max-width: 1400px) {
                 order: 1;
             }
             h2 {
@@ -49,8 +49,11 @@ content {
             div {
                 overflow: auto;
                 display: flex;
-                justify-content: space-between;
-                @media screen and (max-width: 780px) {
+                column-gap: 1em;
+                @media screen and (max-width: 1024px) {
+                    column-gap: 0.2em;
+                }
+                @media screen and (max-width: 900px) {
                     display: grid;
                     grid-template-rows: 1fr 1fr;
                     grid-template-columns: 1fr 1fr;
@@ -115,13 +118,14 @@ content {
             label {
                 margin-right: 0.5em;
             }
-            button:hover {
-                color: $link-color;
-                background-color: darken($color: $base-color, $amount: 4%);
-                text-decoration: underline;
-                border: solid 1px darken($color: $border-color, $amount: 80%);
-            }
         }
+    }
+    button:hover {
+        color: $link-color;
+        background-color: darken($color: $base-color, $amount: 4%);
+        text-decoration: underline;
+        border: solid 2px darken($color: $border-color, $amount: 80%);
+        cursor: pointer;
     }
     #info {
         min-height: 50vh;
@@ -129,6 +133,16 @@ content {
         grid-row: 2/8;
         @media screen and (max-width: 800px) {
             grid-column: 4/8;
+        }
+    }
+    #registerForm, #loginForm {
+        display: flex;
+        flex-direction: column;
+        * {
+          margin-bottom: 0.2em;  
+        }
+        button {
+            max-width: 25%;
         }
     }
 }
