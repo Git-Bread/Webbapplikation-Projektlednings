@@ -24,7 +24,7 @@
           </div>
           <form>
             <label for="joinGroup">Group To Join: </label>
-            <input type="text" id="joinGroup" name="groupJoinInput">
+            <input type="text" id="joinGroup" name="groupJoinInput" placeholder="enter groupname...">
             <button>Join</button>
           </form>
         </section>
@@ -35,7 +35,7 @@
               <h3>Messages</h3>
               <h3>File Download</h3>
               <h3>File Upload</h3>
-              <h3>Information</h3>
+              <h3>Members</h3>
             </div>
           </section>
           <section id="current group">
@@ -45,7 +45,19 @@
         </div>
 
         <section id="info">
-            
+            <div id="enterFile" class="groupOptions">
+              <form>
+                <h4>Upload New File:</h4>
+                <label for="fileUpload">File: (Limited to 16MB)</label>
+                <input type="file" id="fileUpload" name="file" required>
+                <label for="fileText">File Description:</label>
+                <textarea id="fileText" name="file description" placeholder="Describe the file" required></textarea>
+                <button>Upload File</button>
+              </form>
+            </div>
+            <div id="getFile" class="groupOptions"></div>
+            <div id="message" class="groupOptions"></div>
+            <div id="members" class="groupOptions"></div>
         </section>
       </content>
     </body>

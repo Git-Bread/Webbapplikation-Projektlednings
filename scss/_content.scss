@@ -67,6 +67,7 @@ content {
                     background-color: darken($color: $base-color, $amount: 4%);
                     text-decoration: underline;
                     border: solid 1px darken($color: $border-color, $amount: 80%);
+                    cursor: pointer;
                 }
                 h3 {
                     border-radius: 40px;
@@ -134,6 +135,24 @@ content {
         grid-row: 2/8;
         @media screen and (max-width: 800px) {
             grid-column: 4/8;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            * {
+                margin-top: 0.3em;
+            }
+            textarea {
+                max-width: clamp(8em, 75%, 24em);
+            }
+            button {
+                max-width: fit-content;
+                padding: 0.5em;
+                border-radius: 40px;
+            }
+        }
+        .groupOptions {
+            display: none;
         }
     }
     #registerForm, #loginForm {
@@ -204,4 +223,10 @@ content {
             margin-top: 0.2em;
         }
     }
+}
+
+.errorHandlers {
+    display: none;
+    color: red;
+    margin-top: 0.4em;
 }

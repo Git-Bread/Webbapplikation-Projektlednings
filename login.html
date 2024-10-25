@@ -17,20 +17,22 @@
             <content>
                 <section>
                     <h2>Login</h2>
-                    <form id="loginForm">
+                    <form id="loginForm" onsubmit=" loginCheck(this); return false;">
                         <label for="login">Username:</label>
-                        <input type="text" id="login" required>
-                        <button>Login</button>
+                        <input type="text" id="login" required placeholder="...">
+                        <button type="submit">Login</button>
+                        <p id="loginError" class="errorHandlers"></p>
                     </form>
                 </section>
                 <section>
                     <h2>Register</h2>
-                    <form id="registerForm">
+                    <form id="registerForm" onsubmit="register(this); return false;">
                         <label for="registerName">Username:</label>
-                        <input type="text" id="registerName" required>
+                        <input type="text" id="registerName" required placeholder="...">
                         <label for="registerEmail">Email:</label>
-                        <input type="text" id="registerEmail" required>
+                        <input type="text" id="registerEmail" required placeholder="...">
                         <button>Register</button>
+                        <p id="registerError" class="errorHandlers"></p>
                     </form>
                 </section>
             </content>
