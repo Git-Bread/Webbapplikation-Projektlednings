@@ -97,6 +97,7 @@ content {
         form {
             border: $border-color 1px solid;
             padding: 1em;
+            padding-left: 2em;
             border-radius: 40px;
             @media screen and (max-width: 1024px) {
                 width: 90%;
@@ -142,7 +143,22 @@ content {
           margin-bottom: 0.2em;  
         }
         button {
-            max-width: 25%;
+            max-width: fit-content;
+        }
+    }
+}
+#loginWrapp {
+    img {
+        height: 100vh;
+        width: 100%;
+        aspect-ratio: 1/1;
+        position: absolute;
+        z-index: 0;
+    }
+    content {
+        z-index: -1;
+        section {
+            z-index: 4;
         }
     }
 }

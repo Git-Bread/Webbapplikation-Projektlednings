@@ -9,26 +9,31 @@
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     </head>
     <body>
-        <content>
-            <section>
-                <h2>Login</h2>
-                <form id="loginForm">
-                    <label for="login">Username:</label>
-                    <input type="text" id="login" required>
-                    <button>Login</button>
-                </form>
-            </section>
-            <section>
-                <h2>Register</h2>
-                <form id="registerForm">
-                    <label for="registerName">Username:</label>
-                    <input type="text" id="registerName" required>
-                    <label for="registerEmail">Email:</label>
-                    <input type="text" id="registerEmail" required>
-                    <button>Register</button>
-                </form>
-            </section>
-        </content>
+        <picture id="loginWrapp">
+            <source srcset="/images/LoginBackground.png?as=avif&width=1440&height=600&quality=100" type="img/avif">
+            <source srcset="/images/LoginBackground.png?as=webp&width=1440&height=600&quality=100" type="img/webp">
+            <img src="/images/LoginBackground.png?as=jpg&width=1440&height=600&quality=100" type="img/jpg" alt="Colorfull shapes">
+            <content>
+                <section>
+                    <h2>Login</h2>
+                    <form id="loginForm">
+                        <label for="login">Username:</label>
+                        <input type="text" id="login" required>
+                        <button>Login</button>
+                    </form>
+                </section>
+                <section>
+                    <h2>Register</h2>
+                    <form id="registerForm">
+                        <label for="registerName">Username:</label>
+                        <input type="text" id="registerName" required>
+                        <label for="registerEmail">Email:</label>
+                        <input type="text" id="registerEmail" required>
+                        <button>Register</button>
+                    </form>
+                </section>
+            </content>
+        </picture>
     </body>
     <script src="js.js"></script>
 </html>
