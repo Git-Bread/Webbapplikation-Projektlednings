@@ -17,7 +17,7 @@
             <content>
                 <section>
                     <h2>Login</h2>
-                    <form id="loginForm" onsubmit=" loginCheck(this); return false;">
+                    <form id="loginForm" onsubmit="loginCheck(this); return false;">
                         <label for="login">Username:</label>
                         <input type="text" id="login" required placeholder="...">
                         <button type="submit">Login</button>
@@ -26,17 +26,17 @@
                 </section>
                 <section>
                     <h2>Register</h2>
-                    <form id="registerForm" onsubmit="register(this); return false;">
+                    <form id="registerForm" onsubmit="return false;">
                         <label for="registerName">Username:</label>
                         <input type="text" id="registerName" required placeholder="...">
                         <label for="registerEmail">Email:</label>
                         <input type="text" id="registerEmail" required placeholder="...">
-                        <button>Register</button>
+                        <button type="submit">Register</button>
                         <p id="registerError" class="errorHandlers"></p>
                     </form>
                 </section>
             </content>
         </picture>
     </body>
-    <script src="js.js"></script>
+    <script src="js.js" type="module"></script>
 </html>

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "applikation till projektlednings-projekt",
   "source": "index.html",
+  "type": "module",
   "scripts": {
     "build": "parcel build",
     "run": "parcel"

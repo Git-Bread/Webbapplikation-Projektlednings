@@ -17,19 +17,20 @@
       <content>
         <section id="profile">
           <picture>
-            <img src="/images/placeholder.png" alt="profile picture" type="img">
+            <img src="/images/placeholder.png" alt="profile picture" type="img" id="profilePicture">
           </picture>
           <h2>Profile Name</h2>
           <div>
-            <h3>Email: <span>Email</span></h3>
+            <h3>Email: <span id="userEmail">Email</span></h3>
           </div>
-          <form>
+          <form id="pictureForm" onsubmit="return false;">
             <h4>Change Profile Picture:</h4>
             <input type="file" id="myFile" name="filename">
-            <button>Change Profile Picture</button>
+            <button type="submit">Change Profile Picture</button>
+            <p id="profileUploadError" class="errorHandlers"></p>
           </form>
         </section>
       </content>
     </body>
-    <script src="js.js"></script>
+    <script src="js.js" type="module"></script>
 </html>
