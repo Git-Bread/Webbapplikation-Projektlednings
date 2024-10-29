@@ -22,10 +22,14 @@
           <div id="groupList">
   
           </div>
-          <form>
-            <label for="joinGroup">Group To Join: </label>
+          <form id="joinForm" onsubmit="return false;">
+            <label for="joinGroup">Group To Join/Create: </label>
             <input type="text" id="joinGroup" name="groupJoinInput" placeholder="enter groupname...">
-            <button>Join</button>
+            <div>
+              <button id="createButton">Create</button>
+              <button id="joinButton">Join</button>
+            </div>
+            <p id="joinError" class="errorHandlers"></p>
           </form>
         </section>
         <div id="wrapper">
@@ -40,7 +44,6 @@
           </section>
           <section id="current group">
             <h2 id="groupname">Groupname</h2>
-            <p id="groupDescription">Description of group</p>
           </section>
         </div>
 
