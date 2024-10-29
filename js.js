@@ -1,6 +1,7 @@
 //local url
 let url = "http://127.0.0.1:3000";
 const { Buffer } = require('node:buffer');
+const { log } = require('node:console');
 
 var login = false;
 window.onload = async function() {
@@ -100,7 +101,7 @@ async function populate() {
             let p = document.createElement("h2");
             let button = document.createElement("button");
             button.innerHTML = "leave group";
-            button.addEventListener("click", await leaveGroup(login.member[index]));
+            button.addEventListener("click", async ()=> {await leaveGroup(login.username, login.member[index])});
             p.innerHTML = login.member[index];
             div.append(p);
             div.append(button);
@@ -109,8 +110,22 @@ async function populate() {
     }
 }
 
-async function leaveGroup(leave) {
-    console.log(leave)
+async function leaveGroup(login, group) {
+    let res = await fetch(url + "/groupDelete", {
+        method: 'DELETE',
+        body: JSON.stringify({username: login, groupname: group}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json())
+    if(res.error) {
+        let errorHandler = document.getElementById("joinError");
+        errorHandler.innerHTML = res.error;
+        errorHandler.style.display = "block";
+    }
+    else if(res.message){
+        reLog(login);
+    }
 }
 
 async function joinGroup(join) {
@@ -128,7 +143,7 @@ async function joinGroup(join) {
         errorHandler.style.display = "block";
     }
     else if(res.message){
-        window.location.reload();
+        reLog(login.username);
     }
 }
 
