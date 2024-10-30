@@ -49,13 +49,12 @@
 
         <section id="info">
             <div id="enterFile" class="groupOptions">
-              <form>
+              <form id="fileUpload" onsubmit="return false;">
                 <h2>Upload New File:</h2>
-                <label for="fileUpload">File: (Limited to 16MB)</label>
-                <input type="file" id="fileUpload" name="file" required>
-                <label for="fileText">File Description:</label>
-                <textarea id="fileText" name="file description" placeholder="Describe the file" required></textarea>
+                <label for="fileUploadInput">File: (Limited to 16MB)</label>
+                <input type="file" id="fileUploadInput" name="file" required>
                 <button>Upload File</button>
+                <p id="fileUploadError" class="errorHandlers"></p>
               </form>
             </div>
             <div id="getFile" class="groupOptions">
@@ -63,6 +62,16 @@
             </div>
             <div id="message" class="groupOptions">
               <h2>Group-Chat:</h2>
+              <div id="messageWrapper">
+                <div id="messageBox"></div>
+                <form id="messageForm" onsubmit="return false">
+                  <h3>Send New Message:</h3>
+                  <label for="messageText">Message:</label>
+                  <textarea id="messageText" name="message description" placeholder="message..." required></textarea>
+                  <button type="submit">Upload Message</button>
+                  <p id="messageError" class="errorHandlers"></p>
+                </form>
+              </div>
             </div>
             <div id="members" class="groupOptions">
               <h2>Group Members:</h2>
