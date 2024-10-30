@@ -31,6 +31,38 @@ window.onload = async function() {
         document.getElementById("createButton").addEventListener("click", async ()=> {await createGroup(document.getElementById("joinForm"))});
     }
 
+    if (document.getElementById("options")) {
+        let members = document.getElementById("members");
+        let message = document.getElementById("message");
+        let getFile = document.getElementById("getFile");
+        let enterFile = document.getElementById("enterFile");
+
+        document.getElementById("optionTable").children[0].addEventListener("click", () => {
+            members.style.display = "none";
+            message.style.display = "block";
+            getFile.style.display = "none";
+            enterFile.style.display = "none";
+        })
+        document.getElementById("optionTable").children[1].addEventListener("click", () => {
+            members.style.display = "none";
+            message.style.display = "none";
+            getFile.style.display = "block";
+            enterFile.style.display = "none";
+        })
+        document.getElementById("optionTable").children[2].addEventListener("click", () => {
+            members.style.display = "none";
+            message.style.display = "none";
+            getFile.style.display = "none";
+            enterFile.style.display = "block";
+        })
+        document.getElementById("optionTable").children[3].addEventListener("click", () => {
+            members.style.display = "block";
+            message.style.display = "none";
+            getFile.style.display = "none";
+            enterFile.style.display = "none";
+        })
+    }
+
 
 
     if(!document.getElementById("loginForm") && !login) {
@@ -102,9 +134,13 @@ async function populate() {
             let button = document.createElement("button");
             button.innerHTML = "leave group";
             button.addEventListener("click", async ()=> {await leaveGroup(login.username, login.member[index])});
+            let button2 = document.createElement("button");
+            button2.innerHTML = "select group";
+            button2.addEventListener("click", async ()=> {await selectGroup(login.username, login.member[index])});
             p.innerHTML = login.member[index];
-            div.append(p);
             div.append(button);
+            div.append(button2);
+            container.append(p);
             container.append(div);
         }
     }
@@ -216,7 +252,6 @@ async function uploadProfileImg(img) {
             'Content-Type': 'application/json'
         }
     }).then(response => response.json())
-    console.log(res);
     if(res.error) {
         let errorHandler = document.getElementById("profileUploadError");
         errorHandler.innerHTML = res.error;
@@ -224,5 +259,53 @@ async function uploadProfileImg(img) {
     }
     else if(res.message){
         await reLog(user.username);
+    }
+}
+
+async function selectGroup(username, groupname) {  
+    let res = await fetch(url + "/groupFetch", {
+        method: 'POST',
+        body: JSON.stringify({username: username, groupname: groupname}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json())
+    if(res.error) {
+        console.log("something went wrong");
+    }
+    let members = document.getElementById("members")
+    let messageList = document.getElementById("message")
+    let getFile = document.getElementById("getFile")
+
+    document.getElementById("groupname").innerHTML = res.groupFile.name;
+
+    for (let index = 0; index < res.groupFile.members.length; index++) {
+        let p = document.createElement("p");
+        p.innerHTML = res.groupFile.members[index];
+        members.append(p);
+    }
+
+    for (let index = 0; index < res.groupFile.messages.length; index++) {
+        let container = document.createElement("div");
+        let user = document.createElement("h5");
+        let message = document.createElement("p");
+        user.innerHTML = res.groupFile.messages[index].user + " - " + res.groupFile.messages[index].time;
+        message.innerHTML = res.groupFile.messages[index].message;
+        container.append(user);
+        container.append(message);
+        messageList.append(container);
+    }
+
+    for (let index = 0; index < res.groupFile.files.length; index++) {
+        let container = document.createElement("div");
+        let user = document.createElement("h5");
+        let file = document.createElement("a");
+        user.innerHTML = res.groupFile.files[index].user + " - " + res.groupFile.files[index].time;
+        file.innerHTML = res.groupFile.files[index].name;
+        file.setAttribute("href", res.groupFile.files[index].file);
+        file.setAttribute("download")
+        container.append(user);
+        container.append(file);
+        messageList.append(container);
     }
 }

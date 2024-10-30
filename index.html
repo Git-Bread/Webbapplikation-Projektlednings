@@ -35,7 +35,7 @@
         <div id="wrapper">
           <section id="options">
             <h2>Group Functionalities</h2>
-            <div>
+            <div id="optionTable">
               <h3>Messages</h3>
               <h3>File Download</h3>
               <h3>File Upload</h3>
@@ -50,7 +50,7 @@
         <section id="info">
             <div id="enterFile" class="groupOptions">
               <form>
-                <h4>Upload New File:</h4>
+                <h2>Upload New File:</h2>
                 <label for="fileUpload">File: (Limited to 16MB)</label>
                 <input type="file" id="fileUpload" name="file" required>
                 <label for="fileText">File Description:</label>
@@ -58,9 +58,15 @@
                 <button>Upload File</button>
               </form>
             </div>
-            <div id="getFile" class="groupOptions"></div>
-            <div id="message" class="groupOptions"></div>
-            <div id="members" class="groupOptions"></div>
+            <div id="getFile" class="groupOptions">
+              <h2>File Download:</h2>
+            </div>
+            <div id="message" class="groupOptions">
+              <h2>Group-Chat:</h2>
+            </div>
+            <div id="members" class="groupOptions">
+              <h2>Group Members:</h2>
+            </div>
         </section>
       </content>
     </body>
