@@ -16,6 +16,7 @@ async function leaveGroup(login, group) {
         errorHandler.style.display = "block";
     }
     else if(res.message){
+        localStorage.removeItem("lastGroup");
         reLog(login);
     }
 }
@@ -96,7 +97,6 @@ async function selectGroup(username, groupname) {
     }
 
     for (let index = 0; index < res.groupFile.files.length; index++) {
-        console.log(res.groupFile);
         let container = document.createElement("div");
         let user = document.createElement("h5");
         let file = document.createElement("a");

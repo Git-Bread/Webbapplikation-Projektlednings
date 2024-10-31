@@ -1,9 +1,9 @@
 //local url
 let url = "http://127.0.0.1:3000";
 import {loginCheck, register, reLog} from "./login.mjs";
-import {populate} from "./populate.mjs";
 import {joinGroup, createGroup, selectGroup} from "./group.mjs";
 import {uploadProfileImg, uploadFile} from "./filehandling.mjs";
+import {populate} from "./populate.mjs";
 var login = false;
 window.onload = async function() {
     let date = new Date();
