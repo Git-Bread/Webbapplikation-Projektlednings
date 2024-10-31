@@ -6,37 +6,37 @@
         <title>Login Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="scss/master.scss">
-        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="icon" href="images/favicon.ico">
     </head>
     <body>
-        <picture id="loginWrapp">
-            <source srcset="/images/LoginBackground.png?as=avif&width=1440&height=600&quality=100" type="img/avif">
-            <source srcset="/images/LoginBackground.png?as=webp&width=1440&height=600&quality=100" type="img/webp">
-            <img src="/images/LoginBackground.png?as=jpg&width=1440&height=600&quality=100" type="img/jpg" alt="Colorfull shapes">
+        <main id="loginWrapp">
+            <picture>
+                <source srcset="/images/LoginBackground.png?as=avif&width=1440&height=600&quality=100" type="img/avif">
+                <source srcset="/images/LoginBackground.png?as=webp&width=1440&height=600&quality=100" type="img/webp">
+                <img src="/images/LoginBackground.png?as=jpg&width=1440&height=600&quality=100" alt="Colorfull shapes">
+            </picture>
             <h1>Group-Manager-2000</h1>
-            <content>
-                <section>
-                    <h2>Login</h2>
-                    <form id="loginForm" onsubmit="return false;">
-                        <label for="login">Username:</label>
-                        <input type="text" id="login" required placeholder="...">
-                        <button type="submit">Login</button>
-                        <p id="loginError" class="errorHandlers"></p>
-                    </form>
-                </section>
-                <section>
-                    <h2>Register</h2>
-                    <form id="registerForm" onsubmit="return false;">
-                        <label for="registerName">Username:</label>
-                        <input type="text" id="registerName" required placeholder="...">
-                        <label for="registerEmail">Email:</label>
-                        <input type="text" id="registerEmail" required placeholder="...">
-                        <button type="submit">Register</button>
-                        <p id="registerError" class="errorHandlers"></p>
-                    </form>
-                </section>
-            </content>
-        </picture>
+            <section>
+                <h2>Login</h2>
+                <form id="loginForm" onsubmit="return false;">
+                    <label for="login">Username:</label>
+                    <input type="text" id="login" required placeholder="...">
+                    <button type="submit">Login</button>
+                    <p id="loginError" class="errorHandlers"></p>
+                </form>
+            </section>
+            <section>
+                <h2>Register</h2>
+                <form id="registerForm" onsubmit="return false;">
+                    <label for="registerName">Username:</label>
+                    <input type="text" id="registerName" required placeholder="...">
+                    <label for="registerEmail">Email:</label>
+                    <input type="text" id="registerEmail" required placeholder="...">
+                    <button type="submit">Register</button>
+                    <p id="registerError" class="errorHandlers"></p>
+                </form>
+            </section>
+        </main>
+        <script src="js.js" type="module"></script>
     </body>
-    <script src="js.js" type="module"></script>
 </html>
