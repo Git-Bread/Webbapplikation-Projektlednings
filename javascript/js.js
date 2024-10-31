@@ -1,9 +1,11 @@
-//local url
+//imports galore
 let url = "http://127.0.0.1:3000";
 import {loginCheck, register, reLog} from "./login.mjs";
 import {joinGroup, createGroup, selectGroup} from "./group.mjs";
 import {uploadProfileImg, uploadFile} from "./filehandling.mjs";
 import {populate} from "./populate.mjs";
+
+//generall startup
 var login = false;
 window.onload = async function() {
     let date = new Date();
@@ -18,6 +20,7 @@ window.onload = async function() {
         }
     }
 
+    //all the conditional event listeners
     if(document.getElementById("loginForm")) {
         document.getElementById("registerForm").addEventListener("submit", async ()=> {await register(document.getElementById("registerForm"))});
         document.getElementById("loginForm").addEventListener("submit", async ()=> {await loginCheck(document.getElementById("loginForm"))});
@@ -40,6 +43,7 @@ window.onload = async function() {
         document.getElementById("fileUpload").addEventListener("submit", async ()=> {await uploadFile(document.getElementById("fileUpload"))});
     }
 
+    //even more conditional events
     if (document.getElementById("options")) {
         let members = document.getElementById("members");
         let message = document.getElementById("message");
@@ -74,6 +78,8 @@ window.onload = async function() {
             enterFile.style.display = "none";
             localStorage.setItem("selected", 3)
         })
+
+        //forcefully firing specific events to emulate user action, in order to remember user location with localstorage
         const event = new Event("click");
         switch(localStorage.getItem("selected")) {
             case "0":
@@ -91,13 +97,14 @@ window.onload = async function() {
                 break;
         }
 
+        //if there was a group selected, it stays selected
         if (localStorage.getItem("lastGroup")) {
             let oldGroup = JSON.parse(localStorage.getItem("lastGroup"));
-            console.log(oldGroup);
             selectGroup(oldGroup.username, oldGroup.groupname);
         }
     }
 
+    //checks so that the user is logged in
     if(!document.getElementById("loginForm") && !login) {
         window.location = "login.html";
     }
@@ -105,6 +112,7 @@ window.onload = async function() {
         window.location = "index.html";
     }
 
+    //logic for loading user image, could be split into separate function
     if(document.getElementById("profile")) {
         let profile = document.getElementById("profile");
         let user = JSON.parse(localStorage.getItem("loginData"));
@@ -119,6 +127,7 @@ window.onload = async function() {
     }
 }
 
+//function for uploading messages, not in separate file since it was to small to justify it
 async function uploadMessage(message) {
     let login = JSON.parse(localStorage.getItem("loginData"));
     console.log(document.getElementById("groupname").innerHTML);
@@ -129,12 +138,14 @@ async function uploadMessage(message) {
             'Content-Type': 'application/json'
         }
     }).then(response => response.json())
+
+    //error handlling
     if(res.error) {
         let errorHandler = document.getElementById("messageError");
         errorHandler.innerHTML = res.error;
         errorHandler.style.display = "block";
     }
     else if(res.message){
-        await reLog(login.username);
+        await reLog(login.username); //refreshing data
     }
 }
