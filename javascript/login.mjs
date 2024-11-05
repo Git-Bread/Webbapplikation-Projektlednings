@@ -44,6 +44,7 @@ async function register(register) {
         errorHandler.style.display = "block";
     }
     else if(res.message){
+        setTimeout(1000);
         await loginCheck(register);
     }
 }
